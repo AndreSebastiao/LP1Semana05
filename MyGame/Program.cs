@@ -23,6 +23,21 @@ namespace MyGame
             {
                 Console.WriteLine($"{enemy.GetName()} {enemy.GetHealth()} {enemy.GetShield()}");
             }
+
+            villains[0].TakeDamage(60);
+            villains[0].PickupPowerUp(PowerUp.Health, 10);
+            villains[0].PickupPowerUp(PowerUp.Shield, 10);
+
+            if (villains.Length > 1)
+            {
+                villains[1].TakeDamage(60);
+                villains[1].PickupPowerUp(PowerUp.Shield, 15);
+            }
+
+            for (int i = 0; i < villains.Length; i++)
+            {
+                Console.WriteLine($"{villains[i].GetName()} {villains[i].GetHealth()} {villains[i].GetShield()} {Enemy.GetPowerUosCollected()}");
+            }
         }
     }
 }
