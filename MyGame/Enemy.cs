@@ -4,6 +4,10 @@ namespace MyGame
 {
     public class Enemy
     {
+        private string name;
+        private float health;
+        private float shield;
+        
         public Enemy(string name)
         {
             this.name = name;
@@ -58,6 +62,43 @@ namespace MyGame
             }
             else name = newName;
             return name;
+        }
+
+        public void PickupPowerUp(PowerUp powerUp, float value)
+        {
+            if (value > 100)
+            {
+                value = 100;
+            }
+
+            switch (powerUp)
+            {
+                case powerUp.Health;
+                {
+                    if (health + value > 100f)
+                    {
+                        health = 100f;
+                    }
+                    else
+                    {
+                        health += value;
+                    }
+                    break;
+                }
+
+                case powerUp.Shield;
+                {
+                    if(shield + value > 100f)
+                    {
+                        shield = 100f;
+                    }
+                    else
+                    {
+                        shield += value;
+                    }
+                    break;
+                }
+            }
         }
     }
 }
